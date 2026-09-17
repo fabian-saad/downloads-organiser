@@ -4,7 +4,7 @@ A simple Go script that automatically cleans up the Downloads folder by organisi
 
 ## Prerequisites
 
-* Go 1.21 or newer
+Go 1.21 or newer
 
 ## Usage
 
