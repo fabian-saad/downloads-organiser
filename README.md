@@ -25,3 +25,7 @@ Or build an executable:
 ```bash
 go build -o downloads-organiser.exe
 ```
+
+## License
+
+Distributed under the MIT License. See [`LICENSE`](LICENSE) for more information.
