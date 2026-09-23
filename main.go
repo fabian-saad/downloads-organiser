@@ -9,14 +9,14 @@ import (
 )
 
 var categories = map[string][]string{
-	"Bilder, Videos, Audios": {".jpg", ".jpeg", ".png", ".gif", ".svg", ".webp", ".ico", ".mp3", ".wav", ".mp4", ".mkv", ".mov"},
-	"Textdatei":              {".txt", ".csv", ".md", ".rmd", ".log", ".epub", ".mobi"},
+	"Bilder, Videos, Audios": {".jpg", ".jpeg", ".png", ".gif", ".svg", ".webp", ".ico", ".mp3", ".wav", ".mp4", ".mkv", ".mov", ".tif", ".bmp", ".wmf", ".emf", ".wmv"},
+	"Textdatei":              {".txt", ".csv", ".md", ".rmd", ".log", ".epub", ".mobi", ".rtf", ".odt", ".odp"},
 	"Archive":                {".zip", ".tar", ".gz", ".7z", ".rar", ".xz", ".bz2"},
 	"Installer":              {".exe", ".dmg", ".msi", ".pkg", ".deb", ".iso", ".jar"},
 	"PDF":                    {".pdf"},
-	"Word":                   {".docx", ".doc"},
-	"PowerPoint":             {".pptx", ".ppt"},
-	"Excel":                  {".xlsx", ".xls"},
+	"Word":                   {".docx", ".doc", ".docm", ".dotx", ".dotm", ".dot"},
+	"PowerPoint":             {".pptx", ".ppt", ".pptm", ".potx", ".potm", ".pot", ".ppsx", ".ppsm", ".pps", ".ppam"},
+	"Excel":                  {".xlsx", ".xls", ".xlsm", ".xlsb", ".xltx", ".xltm", ".xlt", ".xlam", ".xla"},
 	"Code":                   {".py", ".go", ".js", ".jsx", ".ts", ".tsx", ".html", ".css", ".java", ".cpp", ".c", ".h", ".php", ".rs", ".json", ".xml", ".sql", ".sh", ".bat", ".ipynb", ".r", ".rdata", ".tex", ".yaml", ".yml", ".toml", ".sqlite", ".db"},
 }
 
