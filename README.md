@@ -4,7 +4,7 @@ A simple Go script that automatically cleans up the Downloads folder by organisi
 
 ## Prerequisites
 
-* Go 1.21 or newer
+Go 1.21 or newer
 
 ## Usage
 
@@ -25,3 +25,7 @@ Or build an executable:
 ```bash
 go build -o downloads-organiser.exe
 ```
+
+## License
+
+Distributed under the MIT License. See [`LICENSE`](LICENSE) for more information.
