@@ -8,6 +8,9 @@ import (
 	"strings"
 )
 
+// Skip already existing file or rename and move
+var skip = false
+
 var categories = map[string][]string{
 	"Bilder, Videos, Audios": {".jpg", ".jpeg", ".png", ".gif", ".svg", ".webp", ".ico", ".mp3", ".wav", ".mp4", ".mkv", ".mov", ".tif", ".bmp", ".wmf", ".emf", ".wmv"},
 	"Textdatei":              {".txt", ".csv", ".md", ".rmd", ".log", ".epub", ".mobi", ".rtf", ".odt", ".odp"},
@@ -79,14 +82,25 @@ func moveItem(downloadsDir, item, category string) {
 	oldPath := filepath.Join(downloadsDir, item)
 	newPath := filepath.Join(targetFolder, item)
 
-	if _, err := os.Stat(newPath); os.IsNotExist(err) {
-		err := os.Rename(oldPath, newPath)
-		if err != nil {
-			fmt.Printf("Error moving %s: %v\n", item, err)
-		} else {
-			fmt.Printf("Moved: %s -> %s/\n", item, category)
+	if skip {
+		if _, err := os.Stat(newPath); err == nil {
+			fmt.Printf("Skipped (already exists): %s\n", item)
+			return
 		}
+	}
+
+	ext := filepath.Ext(item)
+	for i := 1; ; i++ {
+		if _, err := os.Stat(newPath); os.IsNotExist(err) {
+			break
+		}
+		newPath = filepath.Join(targetFolder, fmt.Sprintf("%s (%d)%s", strings.TrimSuffix(item, ext), i, ext))
+	}
+
+	err = os.Rename(oldPath, newPath)
+	if err != nil {
+		fmt.Printf("Error moving %s: %v\n", item, err)
 	} else {
-		fmt.Printf("Skipped (already exists): %s\n", item)
+		fmt.Printf("Moved: %s -> %s/%s\n", item, category, filepath.Base(newPath))
 	}
 }
